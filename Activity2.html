@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: azure;">
+    <h1>Js promise</h1>
+    <p id="demo" style="font-size: xx-large;"></p>
+
+    <script>
+        function MyDisplayer(some) {
+            document.getElementById("demo").innerHTML = some; 
+        }
+        function sum(a,b) {
+            var sum = a + b;
+            MyDisplayer(sum);
+        }
+
+        let MyPromise = new Promise(function(myResolve , myReject) {
+            let x = 5;
+
+            if(x == 0) {
+                myResolve("OK");
+            }
+            else {
+                myReject("Error");
+            }
+        });
+
+        MyPromise.then (
+            function(value) {sum(15,25);}, 
+            function(error) {sum(error);}
+    );
+    </script>
+</body>
+</html>
